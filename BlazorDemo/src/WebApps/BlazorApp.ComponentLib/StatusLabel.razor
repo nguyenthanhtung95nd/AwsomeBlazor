@@ -1,0 +1,18 @@
+﻿@switch (Status)
+{
+    case 0:
+        <span class="badge badge-success" style="color:green; background-color: darkgray;">Todo</span>
+        break;
+    case 1:
+        <span class="badge badge-warning" style="color:blue; background-color: darkgray;">Inprogress</span>
+        break;
+    case 2:
+        <span class="badge badge-secondary" style="color:yellow; background-color: darkgray;">Work done</span>
+        break;
+}
+
+
+@code {
+    [Parameter]
+    public int Status { set; get; }
+}

@@ -1,0 +1,161 @@
+﻿@using BlazorApp.Shared.Enums
+@using BlazorApp.Shared.Ticket
+@using BlazorApp.UI.Validation
+
+
+<EditForm EditContext="_editContext" OnValidSubmit="SubmitForm">
+    <FluentValidationValidator />
+    <FormSection Title="Basic of ticket details"
+                 HelpText="This information is used to identify the ticket and can be searched to help user find it.">
+
+        <FormFieldSet Width="col-6">
+            <label for="title" class="font-weight-bold text-secondary">Title</label>
+            <InputText @bind-Value="_ticket.Title" class="form-control" id="title" />
+            <ValidationMessage For="@(() => _ticket.Title)" />
+        </FormFieldSet>
+
+        <FormFieldSet Width="col-6">
+            <label for="description" class="font-weight-bold text-secondary">Description</label>
+            <InputText @bind-Value="_ticket.Description" class="form-control" id="description" />
+            <ValidationMessage For="@(() => _ticket.Description)" />
+        </FormFieldSet>
+
+        <FormFieldSet Width="col-6">
+            <label for="status" class="font-weight-bold text-secondary">Status</label>
+            <InputSelect class="form-control" @bind-Value="_ticket.Status">
+                <option>--Select a status--</option>
+                @foreach (string item in Enum.GetNames(typeof(Status)))
+                {
+                    <option value="@item">@item</option>
+                }
+            </InputSelect>
+        </FormFieldSet>
+
+    </FormSection>
+
+    <FormSection Title="Basic of work item details"
+                 HelpText="This information is used to identify the ticket and can be searched to help user find it.">
+        @{
+            var i = 0;
+        }
+        @foreach (var workItem in _ticket.WorkItems)
+        {
+            i++;
+            <fieldset>
+                <legend>Work Item @i</legend>
+
+                <FormFieldSet Width="col-6">
+                    <label for="rate" class="font-weight-bold text-secondary">Rate</label>
+                    <InputNumber @bind-Value="workItem.Rate" class="form-control" id="rate" />
+                </FormFieldSet>
+
+                <FormFieldSet Width="col-6">
+                    <label for="itemType" class="font-weight-bold text-secondary">Item Type</label>
+                    <InputSelect class="form-control" @bind-Value="workItem.ItemType">
+                        <option>--Select a type--</option>
+                        @foreach (string item in Enum.GetNames(typeof(ItemType)))
+                        {
+                        <option value="@item">@item</option>
+                        }
+                </InputSelect>
+            </FormFieldSet>
+
+            <FormFieldSet Width="col-6">
+                <label for="unitPrice" class="font-weight-bold text-secondary">Unit Price</label>
+                <InputSelect class="form-control" @bind-Value="workItem.UnitPrice">
+                    <option>--Select a unit price--</option>
+                    @foreach (string item in Enum.GetNames(typeof(UnitPrice)))
+                        {
+                        <option value="@item">@item</option>
+                        }
+                </InputSelect>
+            </FormFieldSet>
+
+            <FormFieldSet Width="col-6">
+                <label for="hours" class="font-weight-bold text-secondary">Hours</label>
+                <InputNumber @bind-Value="workItem.Hours" class="form-control" id="hours" />
+            </FormFieldSet>
+
+            <FormFieldSet Width="col-6">
+                <label for="quantity" class="font-weight-bold text-secondary">Quantity</label>
+                <InputNumber @bind-Value="workItem.Quantity" class="form-control" id="Quantity" />
+            </FormFieldSet>
+
+        </fieldset>
+        }
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-outline-primary mt-3" type="button"
+                        @onclick="@(() => _ticket.WorkItems.Add(new WorkItemViewModel()))">
+                    Add Work Item
+                </button>
+            </div>
+        </div>
+    </FormSection>
+
+    <div class="mt-4 mb-5">
+        <div class="row">
+            <div class="offset-4 col-8 text-right">
+                <button class="btn btn-outline-secondary"
+                        type="button"
+                        @onclick="@(() => _ticket = new TicketViewModel())">
+                    Reset
+                </button>
+                <button class="btn btn-primary"
+                        type="submit">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    private EditContext _editContext = default!;
+    private TicketViewModel _ticket = new TicketViewModel();
+
+    [Parameter]
+    public TicketViewModel? Ticket { get; set; }
+
+    [Parameter, EditorRequired] 
+    public Func<TicketViewModel, Task> OnSubmit { get; set; } = default!;
+
+    public void ResetForm()
+    {
+        _ticket = new TicketViewModel();
+        _editContext = new EditContext(_ticket);
+        _editContext.SetFieldCssClassProvider(new BootstrapCssClassProvider());
+    }
+    /// <summary>
+    /// OnInitialized is replaced with OnParametersSet
+    /// This will be called whenever an update happens to the object passed in via the Ticket parameter.
+    /// </summary>
+    protected override void OnParametersSet()
+    {
+        _editContext = new EditContext(_ticket);
+        _editContext.SetFieldCssClassProvider(new BootstrapCssClassProvider());
+
+        if (Ticket != null)
+        {
+            _ticket.Id = Ticket.Id;
+            _ticket.Description = Ticket.Description;
+            _ticket.Title = Ticket.Title;
+            _ticket.Status = Ticket.Status;
+            _ticket.WorkItems.Clear();
+            _ticket.WorkItems.AddRange(Ticket.WorkItems.Select(x => new WorkItemViewModel
+                {
+                    Id = x.Id,
+                    Hours = x.Hours,
+                    ItemType = x.ItemType,
+                    Quantity = x.Quantity,
+                    Rate = x.Rate,
+                    UnitPrice = x.UnitPrice
+                }));
+        }
+    }
+
+    public async Task SubmitForm()
+    {
+        await OnSubmit(_ticket);
+    }
+}

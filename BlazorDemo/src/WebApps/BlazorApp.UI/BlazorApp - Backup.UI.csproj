@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<NpmLastInstall>node_modules/.last-install</NpmLastInstall>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Blazored.Toast" Version="3.2.2" />
+		<PackageReference Include="Blazored.LocalStorage" Version="4.2.0" />
+		<PackageReference Include="FluentValidation" Version="11.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.6" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.6" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Watch Include="**/*.scss" />
+		<Watch Remove="Features\Home\HomePage.razor.scss" />
+		<Watch Remove="Features\Shared\Dropzone.razor.scss" />
+		<Watch Remove="Features\Shared\FormSection.razor.scss" />
+		<Watch Remove="Features\Ticket\CreateTicket.razor.scss" />
+		<None Update="**/*.css" Watch="false" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\images\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Shared\BlazorApp.Shared\BlazorApp.Shared.csproj" />
+	  <ProjectReference Include="..\BlazorApp.ComponentLib\BlazorApp.ComponentLib.csproj" />
+	</ItemGroup>
+
+	<Target Name="CheckForNpm" BeforeTargets="RunNpmInstall">
+		<Exec Command="npm --version" ContinueOnError="true">
+			<Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+		</Exec>
+		<Error Condition="'$(ErrorCode)' != '0'" Text="NPM is required to build this project." />
+	</Target>
+
+	<Target Name="RunNpmInstall" BeforeTargets="CompileScopedScss" Inputs="package.json" Outputs="$(NpmLastInstall)">
+		<Exec Command="npm install" />
+		<Touch Files="$(NpmLastInstall)" AlwaysCreate="true" />
+	</Target>
+
+	<Target Name="CompileScopedScss" BeforeTargets="Compile">
+		<ItemGroup>
+			<ScopedScssFiles Include="Features/**/*.razor.scss" />
+		</ItemGroup>
+
+		<Exec Command="npm run sass -- %(ScopedScssFiles.Identity) %(relativedir)%(filename).css" />
+	</Target>
+
+</Project>

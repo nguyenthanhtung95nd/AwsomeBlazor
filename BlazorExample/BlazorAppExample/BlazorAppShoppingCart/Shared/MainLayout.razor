@@ -1,0 +1,40 @@
+﻿@using BlazorAppShoppingCart.Services
+@inherits LayoutComponentBase
+
+@inject ICartService cartService
+
+@implements IDisposable
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+        </div>
+        <div class="top-row px-4">
+            <h3>Cart Total: $@cartService.Total</h3>
+        </div>
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+@code{
+
+    /// <summary>
+    /// In the preceding code, the component's StateHasChanged method is subscribed to the cartService.OnChange method in the OnInitialized method, 
+    /// and unsubscribed in the Dispose method.
+    /// </summary>
+    protected override void OnInitialized()
+    {
+        cartService.OnChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        cartService.OnChange -= StateHasChanged;
+    }
+}

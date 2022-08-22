@@ -1,0 +1,96 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{0760EC70-9EE2-4DD9-A26C-4C703BE6C970}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp.API", "Services\BlazorApp.API\BlazorApp.API.csproj", "{8E3A9D11-383A-42EF-BD53-13F2A426376E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp.Domain", "Services\BlazorApp.Domain\BlazorApp.Domain.csproj", "{3C9DAD3A-07A7-4D75-BC97-1886BB190E74}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp.Application", "Services\BlazorApp.Application\BlazorApp.Application.csproj", "{149EDEDE-76F8-476E-9881-45F8C7DECE42}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp.Infrastructure", "Services\BlazorApp.Infrastructure\BlazorApp.Infrastructure.csproj", "{CE5E7F68-A100-46B9-9866-040CA2D1A6AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{77980C8A-75C9-4B9E-A939-6DD79349E561}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{109598A7-9587-464D-86B8-F4A8C8B2CC89}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\tung.tnguyen\Desktop\Temp\Blazor\images\clean_architecture.png = C:\Users\tung.tnguyen\Desktop\Temp\Blazor\images\clean_architecture.png
+		C:\Users\tung.tnguyen\Desktop\Temp\Blazor\images\CQRS_Command_Query_Responsibilty_Segregation_Design_Pattern.png = C:\Users\tung.tnguyen\Desktop\Temp\Blazor\images\CQRS_Command_Query_Responsibilty_Segregation_Design_Pattern.png
+		C:\Users\tung.tnguyen\Desktop\Temp\Blazor\images\dependencies_between_layer_in_a_DDD_service.png = C:\Users\tung.tnguyen\Desktop\Temp\Blazor\images\dependencies_between_layer_in_a_DDD_service.png
+		C:\Users\tung.tnguyen\Desktop\Temp\Blazor\images\implement_clean_architecture.png = C:\Users\tung.tnguyen\Desktop\Temp\Blazor\images\implement_clean_architecture.png
+		C:\Users\tung.tnguyen\Desktop\Temp\Blazor\images\MediatR_Design_Pattern.png = C:\Users\tung.tnguyen\Desktop\Temp\Blazor\images\MediatR_Design_Pattern.png
+		C:\Users\tung.tnguyen\Desktop\Temp\Blazor\images\MediatR_Design_Pattern_1.png = C:\Users\tung.tnguyen\Desktop\Temp\Blazor\images\MediatR_Design_Pattern_1.png
+		C:\Users\tung.tnguyen\Desktop\Temp\Blazor\images\MediatR_Design_Pattern_2.png = C:\Users\tung.tnguyen\Desktop\Temp\Blazor\images\MediatR_Design_Pattern_2.png
+		C:\Users\tung.tnguyen\Desktop\Temp\Blazor\images\MediatR_High_Level_Write-Side_in_CQRS.png = C:\Users\tung.tnguyen\Desktop\Temp\Blazor\images\MediatR_High_Level_Write-Side_in_CQRS.png
+		C:\Users\tung.tnguyen\Desktop\Temp\Blazor\images\MediatR_Piple_Line_Behavior.png = C:\Users\tung.tnguyen\Desktop\Temp\Blazor\images\MediatR_Piple_Line_Behavior.png
+		C:\Users\tung.tnguyen\Desktop\Temp\Blazor\images\the_clean_architecture.png = C:\Users\tung.tnguyen\Desktop\Temp\Blazor\images\the_clean_architecture.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApps", "WebApps", "{19C8078F-AB18-47D7-8367-15853260493C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp.UI", "WebApps\BlazorApp.UI\BlazorApp.UI.csproj", "{652FA8FF-7E75-4114-8151-E2259BAE2A3D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp.ComponentLib", "WebApps\BlazorApp.ComponentLib\BlazorApp.ComponentLib.csproj", "{A11316C8-037D-42A2-8174-AA3D0A458C5F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{426B8A1F-B35E-4A0F-863B-448BB1A2519B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp.Shared", "Shared\BlazorApp.Shared\BlazorApp.Shared.csproj", "{5F35E001-DE0F-4370-9D6C-EB6233CB11AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E3A9D11-383A-42EF-BD53-13F2A426376E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E3A9D11-383A-42EF-BD53-13F2A426376E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E3A9D11-383A-42EF-BD53-13F2A426376E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E3A9D11-383A-42EF-BD53-13F2A426376E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C9DAD3A-07A7-4D75-BC97-1886BB190E74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C9DAD3A-07A7-4D75-BC97-1886BB190E74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C9DAD3A-07A7-4D75-BC97-1886BB190E74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C9DAD3A-07A7-4D75-BC97-1886BB190E74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{149EDEDE-76F8-476E-9881-45F8C7DECE42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{149EDEDE-76F8-476E-9881-45F8C7DECE42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{149EDEDE-76F8-476E-9881-45F8C7DECE42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{149EDEDE-76F8-476E-9881-45F8C7DECE42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE5E7F68-A100-46B9-9866-040CA2D1A6AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE5E7F68-A100-46B9-9866-040CA2D1A6AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE5E7F68-A100-46B9-9866-040CA2D1A6AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE5E7F68-A100-46B9-9866-040CA2D1A6AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{652FA8FF-7E75-4114-8151-E2259BAE2A3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{652FA8FF-7E75-4114-8151-E2259BAE2A3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{652FA8FF-7E75-4114-8151-E2259BAE2A3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{652FA8FF-7E75-4114-8151-E2259BAE2A3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A11316C8-037D-42A2-8174-AA3D0A458C5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A11316C8-037D-42A2-8174-AA3D0A458C5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A11316C8-037D-42A2-8174-AA3D0A458C5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A11316C8-037D-42A2-8174-AA3D0A458C5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F35E001-DE0F-4370-9D6C-EB6233CB11AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F35E001-DE0F-4370-9D6C-EB6233CB11AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F35E001-DE0F-4370-9D6C-EB6233CB11AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F35E001-DE0F-4370-9D6C-EB6233CB11AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8E3A9D11-383A-42EF-BD53-13F2A426376E} = {0760EC70-9EE2-4DD9-A26C-4C703BE6C970}
+		{3C9DAD3A-07A7-4D75-BC97-1886BB190E74} = {0760EC70-9EE2-4DD9-A26C-4C703BE6C970}
+		{149EDEDE-76F8-476E-9881-45F8C7DECE42} = {0760EC70-9EE2-4DD9-A26C-4C703BE6C970}
+		{CE5E7F68-A100-46B9-9866-040CA2D1A6AB} = {0760EC70-9EE2-4DD9-A26C-4C703BE6C970}
+		{109598A7-9587-464D-86B8-F4A8C8B2CC89} = {77980C8A-75C9-4B9E-A939-6DD79349E561}
+		{652FA8FF-7E75-4114-8151-E2259BAE2A3D} = {19C8078F-AB18-47D7-8367-15853260493C}
+		{A11316C8-037D-42A2-8174-AA3D0A458C5F} = {19C8078F-AB18-47D7-8367-15853260493C}
+		{5F35E001-DE0F-4370-9D6C-EB6233CB11AA} = {426B8A1F-B35E-4A0F-863B-448BB1A2519B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B714FC00-24A0-4E27-8731-FACD32002A6A}
+	EndGlobalSection
+EndGlobal

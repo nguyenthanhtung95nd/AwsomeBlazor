@@ -1,0 +1,45 @@
+﻿@using BlazorApp.Shared.Enums
+@using BlazorApp.Shared.Ticket
+
+<div>
+    <h3>@Status.ToString() <span></span></h3>
+    <ul id="ul-todo" class="section">
+        <div ondragover="event.preventDefault();" @ondrop="OnDropHandler">
+            @foreach (var item in Items
+            .Where(q => q.Status == Status))
+            {
+                <li class="sample" draggable="true"  @ondragstart="@(() => OnDragStartHandler(item))">
+                    <span class="txt">@item.Title</span>
+                    <span class="txt">@item.Description</span>
+                    <span class="idTask">@item.Id</span>
+                    <a class="up" href="#"></a>
+                    <a class="down" href="#"></a>
+                    <a class="delete" href="#"></a>
+                </li>
+            }
+        </div>
+    </ul>
+</div>
+@code {
+    [Parameter]
+    public List<TicketViewModel> Items { get; set; }
+
+    [Parameter]
+    public Status Status { get; set; }
+
+    [Parameter]
+    public EventCallback<Status> OnDrop { get; set; }
+
+    [Parameter]
+    public EventCallback<TicketViewModel> OnStartDrag { get; set; }
+
+    private void OnDropHandler()
+    {
+        OnDrop.InvokeAsync(Status);
+    }
+
+    private void OnDragStartHandler(TicketViewModel task)
+    {
+        OnStartDrag.InvokeAsync(task);
+    }
+}

@@ -1,0 +1,50 @@
+﻿@page "/"
+@using BlazorApp.Shared.Enums
+@using System.Security.Claims
+
+<AuthorizeView>
+    <Authorized>
+        The user is authorized
+        The user: @context.User.FindFirst(ClaimTypes.Name).Value is authorized
+    </Authorized>
+    <NotAuthorized>
+        The User is not authorized
+    </NotAuthorized>
+</AuthorizeView>
+
+@if (IsLoading)
+{
+    <LoadingIndicator></LoadingIndicator>
+}
+
+<div class="row">
+    <div class="col-3">
+        <button type="button" class="btn btn-info btn-lg" @onclick="NavigateToHome">
+            <span class="glyphicon glyphicon-home"></span>
+            View Ticket in table
+        </button>
+    </div>
+
+    <hr class="mt-1" />
+</div>
+
+<div id="myLists">
+    <div id="to-do">
+        <Dropzone Status="Status.TODO"
+                  Items="TicketItems"
+                  OnDrop="OnDrop"
+                  OnStartDrag="OnStartDrag" />
+    </div>
+    <div id="work-in">
+        <Dropzone Status="Status.INPROGRESS"
+                  Items="TicketItems"
+                  OnDrop="OnDrop"
+                  OnStartDrag="OnStartDrag" />
+    </div>
+    <div id="do-ne">
+        <Dropzone Status="Status.WORKDONE"
+                  Items="TicketItems"
+                  OnDrop="OnDrop"
+                  OnStartDrag="OnStartDrag" />
+    </div>
+</div>

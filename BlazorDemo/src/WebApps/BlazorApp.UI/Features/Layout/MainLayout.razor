@@ -1,0 +1,16 @@
+﻿@using Blazored.Toast
+@using Blazored.Toast.Configuration
+@inherits LayoutComponentBase
+
+<Header />
+<BlazoredToasts 
+    Position="ToastPosition.BottomRight" 
+    Timeout="5"
+    IconType="IconType.FontAwesome" 
+    ErrorIcon="fa fa-times"
+    InfoIcon="fa fa-info" 
+    SuccessIcon="fa fa-check" 
+    WarningIcon="fa fa-exclamation" />
+<main class="container mt-5 mb-5">
+    @Body
+</main>

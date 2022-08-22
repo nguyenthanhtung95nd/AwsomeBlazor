@@ -1,0 +1,20 @@
+﻿@using BlazorApp.Models.Enums
+
+@switch (Priority)
+{
+    case Priority.Low:
+        <span class="badge text-bg-secondary blue" style="color:red">Low</span>
+        break;
+    case Priority.High:
+        <span class="badge text-bg-danger" style="color:purple">High</span>
+        break;
+    case Priority.Medium:
+        <span class="badge text-bg-warning" style="color:green">Medium</span>
+        break;
+}
+
+
+@code {
+    [Parameter]
+    public Priority Priority { set; get; }
+}

@@ -1,0 +1,63 @@
+﻿@using BlazorApp.Client.Services
+@using BlazorApp.Models
+@using BlazorApp.Models.Enums
+<EditForm Model="TodoListSearch" OnSubmit=@SearchForm>
+    <div class="row">
+        <div class="col">
+            <label>Name</label>
+            <InputText class="form-control" @bind-Value="TodoListSearch.Name"></InputText>
+        </div>
+
+        <div class="col">
+            <label>Assignee</label>
+            <InputSelect class="form-control" @bind-Value="TodoListSearch.AssigneeId">
+                <option>--Select--</option>
+                @foreach (var assignee in Assignees)
+                    {
+                        <option value="@assignee.Id">@assignee.FullName</option>
+                    }
+                </InputSelect>
+        </div>
+
+        <div class="col">
+            <label>Priority</label>
+            <InputSelect class="form-control" @bind-Value="TodoListSearch.Priority">
+                <option>--Select--</option>
+                @foreach (string item in Enum.GetNames(typeof(Priority)))
+                {
+                    <option value="@item">@item</option>
+                }
+            </InputSelect>
+        </div>
+
+        <div class="col button-top">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+
+        <div class="col button-top">
+            <a href="/todo-create" class="btn btn-success">Create</a>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    [Inject]
+    private IUserApiClient _userApiClient { set; get; }
+
+    [Parameter]
+    public EventCallback<TodoListSearch> OnSearch { set; get; }
+
+    private TodoListSearch TodoListSearch { get; set; } = new TodoListSearch();
+
+    private List<AssigneeDto> Assignees;
+
+    protected async override Task OnInitializedAsync()
+    {
+        Assignees = await _userApiClient.GetAssignees();
+    }
+
+    private async Task SearchForm(EditContext context)
+    {
+        await OnSearch.InvokeAsync(TodoListSearch);
+    }
+}

@@ -1,0 +1,35 @@
+﻿@page "/todo-detail/{id}"
+@using BlazorApp.Client.Components
+
+<h3>TodoDetail @id</h3>
+
+@if (Todo == null)
+{
+    <LoadingIndicator></LoadingIndicator>
+}
+else
+{
+    <h3>Todo @Todo.Name</h3>
+    <table class="table">
+        <tr>
+            <td>Name</td>
+            <td>@Todo.Name</td>
+        </tr>
+        <tr>
+            <td>Assignee</td>
+            <td>@Todo.AssigneeName</td>
+        </tr>
+        <tr>
+            <td>Create date</td>
+            <td>@Todo.CreatedDate</td>
+        </tr>
+        <tr>
+            <td>Priority</td>
+            <td><PriorityLabel Priority="@Todo.Priority"></PriorityLabel></td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td><StatusLabel Status="Todo.Status"></StatusLabel></td>
+        </tr>
+    </table>
+}

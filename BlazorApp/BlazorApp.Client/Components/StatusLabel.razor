@@ -1,0 +1,25 @@
+﻿@using BlazorApp.Models.Enums
+@switch (Status)
+{
+    case Status.Open:
+        <span class="badge badge-success" style="color:green">@nameof(Status.Open)</span>
+        break;
+    case Status.Inprogress:
+        <span class="badge badge-warning" style="color:blue">@nameof(Status.Inprogress)</span>
+        break;
+    case Status.Resolved:
+        <span class="badge badge-secondary" style="color:darkcyan">@nameof(Status.Resolved)</span>
+        break;
+    case Status.Done:
+        <span class="badge badge-dark" style="color:red">@nameof(Status.Done)</span>
+        break;
+    case Status.Canceled:
+        <span class="badge badge-light" style="color:yellow">@nameof(Status.Canceled)</span>
+        break;
+}
+
+
+@code {
+    [Parameter]
+    public Status Status { set; get; }
+}

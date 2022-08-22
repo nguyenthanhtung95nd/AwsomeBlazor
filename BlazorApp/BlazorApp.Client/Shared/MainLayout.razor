@@ -1,0 +1,45 @@
+﻿@using BlazorApp.Client.Pages
+@using Blazored.Toast
+@using Blazored.Toast.Configuration
+@using Microsoft.AspNetCore.Components.Authorization
+@inherits LayoutComponentBase
+
+<BlazoredToasts 
+    Position="ToastPosition.BottomRight" 
+    Timeout="5" 
+    IconType="IconType.FontAwesome" 
+    ErrorIcon="fa fa-times"
+    InfoIcon="fa fa-info" 
+    SuccessIcon="fa fa-check" 
+    WarningIcon="fa fa-exclamation" />
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <AuthorizeView>
+                <Authorized>
+                    Hello, @context.User.Identity.Name
+                    <a href="/logout">Logout</a>
+                </Authorized>
+                <NotAuthorized>
+                    <a href="/login" class="ml-md-auto">Login</a>
+                </NotAuthorized>
+            </AuthorizeView>
+            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+        </div>
+
+        <article class="content px-4">
+            <AuthorizeView>
+                <Authorized>
+                    @Body
+                </Authorized>
+                <NotAuthorized>
+                    <Login></Login>
+                </NotAuthorized>
+            </AuthorizeView>
+        </article>
+    </main>
+</div>

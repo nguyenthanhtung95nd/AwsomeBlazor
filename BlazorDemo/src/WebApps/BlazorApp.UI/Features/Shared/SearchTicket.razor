@@ -1,0 +1,62 @@
+﻿@using BlazorApp.Shared.Enums
+@using BlazorApp.Shared.Ticket
+
+<EditForm Model="SearchTicketViewModel" OnSubmit=@SearchForm>
+    <div class="row">
+        <div class="col">
+            <input class="form-control" @bind-value="SearchTicketViewModel.Title" placeholder="Enter Title" 
+            @bind-value:event="oninput" @onkeyup="SearchChanged"></input>
+        </div>
+
+        <div class="col">
+            <InputSelect class="form-control" @bind-Value="SearchTicketViewModel.Status">
+                <option>--Select a status--</option>
+                @foreach (string item in Enum.GetNames(typeof(Status)))
+                {
+                    <option value="@item">@item</option>
+                }
+            </InputSelect>
+        </div>
+
+        <div class="col button-top">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+
+        <div class="col button-top">
+            <a href="/ticket/create" class="btn btn-success">Create Ticket</a>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+
+    [Parameter]
+    public EventCallback<SearchTicketViewModel> OnSearch { set; get; }
+
+    private SearchTicketViewModel SearchTicketViewModel { get; set; } = new SearchTicketViewModel();
+
+    protected async override Task OnInitializedAsync()
+    {
+    }
+
+    private async Task SearchForm(EditContext context)
+    {
+        await OnSearch.InvokeAsync(SearchTicketViewModel);
+    }
+
+    private Timer _timer;
+
+    private void SearchChanged()
+    {
+        if (_timer != null)
+            _timer.Dispose();
+
+        _timer = new Timer(OnTimerElapsed, null, 500, 0);
+    }
+
+    private void OnTimerElapsed(object sender)
+    {
+         OnSearch.InvokeAsync(SearchTicketViewModel);
+        _timer.Dispose();
+    }
+}

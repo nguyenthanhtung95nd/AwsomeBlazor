@@ -1,0 +1,82 @@
+﻿@page "/ticket/create"
+@using BlazorApp.Shared.Enums
+@using BlazorApp.Shared.Ticket
+@using BlazorApp.UI.Validation
+@using Blazored.Toast.Services
+
+<PageTitle>Create New Ticket</PageTitle>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+            Create ticket
+        </li>
+    </ol>
+</nav>
+
+<h3 class="mt-5 mb-4">Create a ticket</h3>
+
+@if (_submitSuccessful)
+{
+    <SuccessAlert Message="Your ticket has been created successfully!" />
+}
+else if (_errorMessage is not null)
+{
+    <ErrorAlert Message="@_errorMessage" />
+}
+
+@if (isLoading)
+{
+    <LoadingIndicator></LoadingIndicator>
+}
+
+<TicketForm @ref="_ticketForm" OnSubmit="HandleCreateTicket"></TicketForm>
+
+@code {
+
+    [Inject]
+    public ITicketSevice TicketSevice { get; set; } = default!;
+
+    [Inject]
+    NavigationManager NavigationManager { get; set; } = default!;
+
+    [Inject]
+    private IToastService ToastService { set; get; } = default!;
+
+    public bool isLoading = false;
+
+    private TicketForm _ticketForm = default!;
+
+    private bool _submitSuccessful;
+    private string? _errorMessage;
+
+    private async Task HandleCreateTicket(TicketViewModel model)
+    {
+        var ticketToCreateVm = new CreateTicketViewModel
+        {
+            Title = model.Title,
+            Description = model.Description,
+            Status = model.Status,
+            WorkItems = model.WorkItems
+        };
+
+        isLoading = true;
+        var result = await TicketSevice.CreateTicket(ticketToCreateVm);
+        if (result > 0)
+        {
+            _submitSuccessful = true;
+            ToastService.ShowSuccess($"Ticket has been created successfully.", "Success");
+            _ticketForm.ResetForm();
+        }
+        else
+        {
+            _submitSuccessful = false;
+            _errorMessage = "There was a problem saving your ticket.";
+            ToastService.ShowError($"Ticket can not create!.", "Error");
+        }
+
+        isLoading = false;
+        StateHasChanged();
+    }
+}

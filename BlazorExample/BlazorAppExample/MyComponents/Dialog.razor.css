@@ -1,0 +1,41 @@
+﻿/*This class is used to set the background color of the
+element to black with 60% opacity and place it on top of the other
+elements by setting its z-index to 2, 000*/
+.dialog-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 2000;
+}
+
+/*This class is used to set the background color of the element to
+white, center it horizontally within its parent, and set its width to 25
+REM*/
+.dialog {
+    background-color: white;
+    margin: auto;
+    width: 25rem;
+}
+
+/*This class is used to set the background color to dark gray,
+set the text to white, and add some padding.*/
+.dialog-title {
+    background-color: #343a40;
+    color: white;
+    padding: .5rem;
+}
+
+/*This class is used to add some padding*/
+.dialog-body {
+    padding: 2rem;
+}
+
+/*This class is used to set the background color to silver
+and add some padding.*/
+.dialog-buttons {
+    background-color: silver;
+    padding: .5rem;
+}

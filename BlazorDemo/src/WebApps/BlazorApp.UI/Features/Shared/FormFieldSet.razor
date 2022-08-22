@@ -1,0 +1,21 @@
+﻿<div class="row">
+    <div class="@Width">
+        <div class="form-group">
+            @ChildContent
+        </div>
+    </div>
+</div>
+
+@code {
+    /// <summary>
+    /// The width of the row can be passed in, but there is a default value provided
+    /// </summary>
+    [Parameter, EditorRequired] 
+    public RenderFragment ChildContent { get; set; } = default!;
+
+    /// <summary>
+    /// The label and input component will be passed in as child content
+    /// </summary>
+    [Parameter] 
+    public string Width { get; set; } = "col";
+}

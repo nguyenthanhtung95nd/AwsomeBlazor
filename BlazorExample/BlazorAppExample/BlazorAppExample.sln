@@ -1,0 +1,85 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32602.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAppExample", "BlazorAppExample\BlazorAppExample.csproj", "{E735A9F7-7FF3-4150-8104-4BD09E84A9CE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyComponents", "MyComponents\MyComponents.csproj", "{7260C285-0A33-4C59-B74A-833E74A8FCEA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAppShoppingCart", "BlazorAppShoppingCart\BlazorAppShoppingCart.csproj", "{F64931D5-1952-4A21-8586-FBE3CBB5B108}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAppKanban", "BlazorAppKanban\BlazorAppKanban.csproj", "{4525A49A-CF7A-4A28-ACC6-E3C7E5EF2720}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAppTaskManager.Server", "BlazorAppTaskManager\Server\BlazorAppTaskManager.Server.csproj", "{9B78A12B-B88A-444A-A60F-48BEBFECEFE2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAppTaskManager.Client", "BlazorAppTaskManager\Client\BlazorAppTaskManager.Client.csproj", "{2AE17174-F453-46AA-B478-7B1D97CB4DC6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAppTaskManager.Shared", "BlazorAppTaskManager\Shared\BlazorAppTaskManager.Shared.csproj", "{892C32B0-2717-4830-B395-92AB82E3A2AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAppEditForm.Server", "BlazorAppEditForm\Server\BlazorAppEditForm.Server.csproj", "{D18CB17E-09FA-4217-B86D-4E524419EB00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAppEditForm.Client", "BlazorAppEditForm\Client\BlazorAppEditForm.Client.csproj", "{3E1AEBD7-A47E-4A0F-BD0F-C35D5C4187F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAppEditForm.Shared", "BlazorAppEditForm\Shared\BlazorAppEditForm.Shared.csproj", "{0EBC9232-58CF-4EA8-A50F-0B11CE1DE774}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp.ComponentLifecycle", "BlazorApp.ComponentLifecycle\BlazorApp.ComponentLifecycle.csproj", "{2A8FA438-58D1-48DE-B975-5F113E6B5930}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E735A9F7-7FF3-4150-8104-4BD09E84A9CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E735A9F7-7FF3-4150-8104-4BD09E84A9CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E735A9F7-7FF3-4150-8104-4BD09E84A9CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E735A9F7-7FF3-4150-8104-4BD09E84A9CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7260C285-0A33-4C59-B74A-833E74A8FCEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7260C285-0A33-4C59-B74A-833E74A8FCEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7260C285-0A33-4C59-B74A-833E74A8FCEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7260C285-0A33-4C59-B74A-833E74A8FCEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F64931D5-1952-4A21-8586-FBE3CBB5B108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F64931D5-1952-4A21-8586-FBE3CBB5B108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F64931D5-1952-4A21-8586-FBE3CBB5B108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F64931D5-1952-4A21-8586-FBE3CBB5B108}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4525A49A-CF7A-4A28-ACC6-E3C7E5EF2720}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4525A49A-CF7A-4A28-ACC6-E3C7E5EF2720}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4525A49A-CF7A-4A28-ACC6-E3C7E5EF2720}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4525A49A-CF7A-4A28-ACC6-E3C7E5EF2720}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B78A12B-B88A-444A-A60F-48BEBFECEFE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B78A12B-B88A-444A-A60F-48BEBFECEFE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B78A12B-B88A-444A-A60F-48BEBFECEFE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B78A12B-B88A-444A-A60F-48BEBFECEFE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AE17174-F453-46AA-B478-7B1D97CB4DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AE17174-F453-46AA-B478-7B1D97CB4DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AE17174-F453-46AA-B478-7B1D97CB4DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AE17174-F453-46AA-B478-7B1D97CB4DC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{892C32B0-2717-4830-B395-92AB82E3A2AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{892C32B0-2717-4830-B395-92AB82E3A2AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{892C32B0-2717-4830-B395-92AB82E3A2AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{892C32B0-2717-4830-B395-92AB82E3A2AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D18CB17E-09FA-4217-B86D-4E524419EB00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D18CB17E-09FA-4217-B86D-4E524419EB00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D18CB17E-09FA-4217-B86D-4E524419EB00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D18CB17E-09FA-4217-B86D-4E524419EB00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E1AEBD7-A47E-4A0F-BD0F-C35D5C4187F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E1AEBD7-A47E-4A0F-BD0F-C35D5C4187F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E1AEBD7-A47E-4A0F-BD0F-C35D5C4187F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E1AEBD7-A47E-4A0F-BD0F-C35D5C4187F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EBC9232-58CF-4EA8-A50F-0B11CE1DE774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EBC9232-58CF-4EA8-A50F-0B11CE1DE774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EBC9232-58CF-4EA8-A50F-0B11CE1DE774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EBC9232-58CF-4EA8-A50F-0B11CE1DE774}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A8FA438-58D1-48DE-B975-5F113E6B5930}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A8FA438-58D1-48DE-B975-5F113E6B5930}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A8FA438-58D1-48DE-B975-5F113E6B5930}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A8FA438-58D1-48DE-B975-5F113E6B5930}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A7AC3BAB-E1EE-4BE1-8C9E-75C553095C50}
+	EndGlobalSection
+EndGlobal
